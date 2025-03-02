@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            background: url('blog/images/111.jpg') no-repeat center center fixed; /* Замените путь на ваш */
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+    
+        .header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+    
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+    
+        .navbar a:hover {
+            color: #f1c40f;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Легкая прозрачность */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+    
+        h2 {
+            color: #f1c40f;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+    
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    
+        .logout-btn {
+            background: #f1c40f;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+    
+        .logout-btn:hover {
+            background: #d4ac0d;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="header"><h2>Best Basketball Players</h2></div>
+
+    <nav class="navbar">
+        <a href="{% url 'post-list' %}">Головна</a>
+        <a href="{% url 'register' %}">Реєстрація</a>
+    </nav>
+
+    <div class="container">
+        <h3>Ваші пости</h3>
+        
+    </div>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Вихід</button>
+    </form>
+
+</body>
+</html>
